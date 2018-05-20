@@ -46,15 +46,9 @@ public class Thief extends AttackCard {
 		String pickedCardName="Dummy";
 		while(!pickedCardName.equals("")&&!choosedCards.isEmpty()) {
 			pickedCardName=p.chooseCard("Quelle carte souhaitez vous recevoir? (entrée pour passer)", choosedCards, true);
-			choosedCards.transferTo(choosedCards.getCard(pickedCardName),p.getDiscard() );
+			choosedCards.transferTo(choosedCards.getCard(pickedCardName),p.getDiscard() );		
+		
+		}		
 			
-		
-		}
-		
-		
-		List<Player> players=new ArrayList<Player>();
-		players=p.otherPlayers();
-		@SuppressWarnings("unused")
-		int hey=0;
 	}
 }
