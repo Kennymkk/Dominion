@@ -15,16 +15,13 @@ public class Gardens extends VictoryCard {
 	@Override
 	public void play(Player p) {
 				
-	}
+	} 
 	
 	public int victoryValue(Player p){
-		Double VP=0.0;
-		VP=(double) (p.getDraw().size()/10);
-		VP+=p.getDiscard().size()/10;
-		VP+=p.getHand().size()/10;
-		VP+=p.getInPlay().size()/10;
-		int VPconv=VP.intValue();
-		return VPconv;
+		
+		int Victory_points;
+		
+		return Victory_points = p.totalCards().size() / 10;
 		
 	}
 }

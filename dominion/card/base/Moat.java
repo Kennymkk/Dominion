@@ -14,7 +14,8 @@ public class Moat extends ReactionCard {
 
 	@Override
 	public void play(Player p) {
-		// TODO Auto-generated method stub
+		p.getHand().add(p.drawCard());
+		p.getHand().add(p.drawCard());
 		
 	}
 }
