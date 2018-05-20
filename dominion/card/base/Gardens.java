@@ -22,7 +22,6 @@ public class Gardens extends VictoryCard {
 		nbCard=p.getDraw().size();
 		nbCard+=p.getDiscard().size();
 		nbCard+=p.getHand().size();
-		nbCard+=p.getInPlay().size();
 		return nbCard/10;
 		
 	}
