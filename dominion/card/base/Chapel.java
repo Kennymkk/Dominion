@@ -19,7 +19,7 @@ public class Chapel extends ActionCard {
 		for(int i=0;i<4;i++) {
 			if(!p.getHand().isEmpty()) {			
 				String trashedCard=p.chooseCard("Choissisez encore"+ (4-i)+ "cartes à écarter", playerHand, false);
-				int trou=0;
+				
 				if(trashedCard!="") {
 					Card c=playerHand.getCard(trashedCard);
 					if(c!=null) {
@@ -27,12 +27,6 @@ public class Chapel extends ActionCard {
 					}
 				}
 			}						
-		@SuppressWarnings("unused")
-		int test=0;
-		}
-		int debug=0;
-		
-		
+		}		
 	}
-
 }

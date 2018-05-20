@@ -13,41 +13,26 @@ public class Mine extends ActionCard {
     
     public void play(Player p) {
         
-        CardList cl = p.getHand();
-        Boolean choix_valide = false;
+        CardList cl = p.getTreasureCards();       
         Card choosed_card_main;
         int newcard_cost = 0;
                 
         
-        if (cl.contains(CardType.Treasure)) {
-            while (choix_valide != true) {
-                String choix = p.chooseCard("Choisissez la carte trésor que vous souhaitez écarter.", cl, false);
-                choosed_card_main=cl.getCard(choix);                
-        
-                if(choosed_card_main.getTypes().contains(CardType.Treasure)) {
-                	cl.transferTo(cl.getCard(choix), p.getGame().getTrashedCards());                    
-                    newcard_cost = choosed_card_main.getCost()+3;
-                    choix_valide = true;
-                }
-                
-            }
-            
-        Card choose_card_pioche;
-        CardList treasure_card_list = p.getGame().availableSupplyCards();
-            while (true){
-                String choix_carte = p.chooseCard("Choisissez la carte trésor que vous souhaitez récupérer dans votre pioche.", treasure_card_list, false);
-                choose_card_pioche=cl.getCard(choix_carte);
-                
-                if(choose_card_pioche.getTypes().contains(CardType.Treasure) && choose_card_pioche.getCost()<= newcard_cost){ 
-                    
-                	treasure_card_list.transferTo(treasure_card_list.getCard(choix_carte), p.getHand());
-                    
-                    break;
-                }
-            }
-                
-            
-            
+        String choix = p.chooseCard("Choisissez la carte trésor que vous souhaitez écarter.", cl, false);
+        choosed_card_main=cl.getCard(choix);      
+        cl.transferTo(cl.getCard(choix), p.getGame().getTrashedCards());                    
+        newcard_cost = choosed_card_main.getCost()+3;               
+      
+        CardList supply_cards = p.getGame().availableSupplyCards();
+        CardList treasure_card_list= new CardList();
+        for(int i=0; i< supply_cards.size(); i++) {
+        	
+        	if(supply_cards.get(i).getTypes().get(0)==CardType.Treasure && supply_cards.get(i).getCost() <= newcard_cost ) {         	
+        		treasure_card_list.add(supply_cards.get(i));        		
+        	}
+        	
         }
+             String choix_carte = p.chooseCard("Choisissez la carte trésor que vous souhaitez récupérer dans votre main.", treasure_card_list, false);
+             supply_cards.transferTo(supply_cards.getCard(choix_carte), p.getHand());                
     }
 }
