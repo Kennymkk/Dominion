@@ -20,14 +20,13 @@ public class Remodel extends ActionCard {
 		Card c=HandPlayer.getCard(cardName);
 		int cost=c.getCost()+2;
 		p.getHand().transferTo(c, p.getGame().getTrashedCards());
-		Card newCard=null;
-		CardList SupplyCards=p.getGame().availableSupplyCards();
+		Card newCard=null;		
 		while(true){		
-			String newCardName=p.chooseCard("Choisissez une carte coûtant jusqu'à"+cost+"pièces d'or", SupplyCards, false);
-			newCard=SupplyCards.getCard(newCardName);
+			String newCardName=p.chooseCard("Choisissez une carte coûtant jusqu'à"+cost+"pièces d'or", p.getGame().availableSupplyCards(), false);
+			newCard=p.getGame().
 			if(newCard.getCost()<cost) break;
 		}
-		p.getDiscard().add(newCard);
+	
 		
 	}
 }

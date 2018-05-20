@@ -15,18 +15,23 @@ public class Chapel extends ActionCard {
 
 	@Override
 	public void play(Player p) {
-		CardList playerHand=p.getHand();
-		for(int i=0;i<4;i++) {
-			if(!p.getHand().isEmpty()) {			
-				String trashedCard=p.chooseCard("Choissisez encore"+ (4-i)+ "cartes à écarter", playerHand, false);
-				
-				if(trashedCard!="") {
-					Card c=playerHand.getCard(trashedCard);
-					if(c!=null) {
-						playerHand.transferTo(c, p.getGame().getTrashedCards());
-					}
-				}
-			}						
-		}		
+		
+		int CardLeft = 0;
+		CardList playerHand = p.getHand();
+		CardList cardToRemove = new CardList();
+		String trashedCard="Dummy";
+		
+		while(CardLeft < 4 && trashedCard != "") {
+			trashedCard = p.chooseCard("Choisissez la carte à écarter, il reste (", playerHand, true);
+			if(!trashedCard.equalsIgnoreCase("")) {	
+				cardToRemove.add(playerHand.getCard(trashedCard));
+				CardLeft++;
+			}
+		}
+		if(cardToRemove.size() != 0){
+			for(Card c : cardToRemove) {
+				playerHand.transferTo(c, p.getGame().getTrashedCards());
+			}
+		}
 	}
 }
