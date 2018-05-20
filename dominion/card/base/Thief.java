@@ -31,22 +31,30 @@ public class Thief extends AttackCard {
 					otherCards.add(c);
 				}
 			}
+			
 			String cardNameChoosed=p.chooseCard("Choisissez la carte à écarter pour le joueur"+loop_p.toString(), treasureCards, false);
-			Card choosedCard=treasureCards.getCard(cardNameChoosed);
-			if(choosedCard!=null){
-				choosedCards.add(choosedCard);
-			}			
-			for(Card loop_c : otherCards){
-				otherCards.transferTo(loop_c, loop_p.getDiscard());
-			}
-			for(Card loop_c : treasureCards){
-				treasureCards.transferTo(loop_c, loop_p.getDiscard());
-			}
+			Card choosedCard=treasureCards.getCard(cardNameChoosed);			
+			choosedCards.add(choosedCard);
+			treasureCards.remove(choosedCard);
+					
+			
+			otherCards.transferTo(loop_p.getDiscard());		
+			treasureCards.transferTo(loop_p.getDiscard());
+			
 			
 		}
-		while(true){
-			//cardNameChoosed=
+		String pickedCardName="Dummy";
+		while(!pickedCardName.equals("")&&!choosedCards.isEmpty()) {
+			pickedCardName=p.chooseCard("Quelle carte souhaitez vous recevoir? (entrée pour passer)", choosedCards, true);
+			choosedCards.transferTo(choosedCards.getCard(pickedCardName),p.getDiscard() );
+			
+		
 		}
 		
+		
+		List<Player> players=new ArrayList<Player>();
+		players=p.otherPlayers();
+		@SuppressWarnings("unused")
+		int hey=0;
 	}
 }
