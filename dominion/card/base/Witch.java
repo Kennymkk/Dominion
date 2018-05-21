@@ -19,8 +19,18 @@ public class Witch extends AttackCard {
     List<Player> op;
     op=p.getGame().otherPlayers(p);   
     for (Player loop_p : op){
+    	
+    	if (loop_p.getHand().getCard("Moat")!= null){
+    		if(!((Moat) loop_p.cardsInHand().getCard("Moat")).reaction(loop_p)){
+    	
       loop_p.getDiscard().add(loop_p.getGame().getFromSupply("Curse"));
       loop_p.getGame().removeFromSupply("Curse");
+    		}
+    	}
+    	else {
+    		loop_p.getDiscard().add(loop_p.getGame().getFromSupply("Curse"));
+    	     loop_p.getGame().removeFromSupply("Curse");
+    	}
     }
   }
 }
