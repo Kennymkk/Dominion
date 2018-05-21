@@ -29,7 +29,6 @@ public class CouncilRoom extends ActionCard {
 	for (Player loop_p : p.getGame().otherPlayers(p)){
       loop_p.getHand().add(loop_p.drawCard());
     }
-	int debug=1;
   }
   
   

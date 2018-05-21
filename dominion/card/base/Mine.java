@@ -27,7 +27,7 @@ public class Mine extends ActionCard {
         
         String choix = p.chooseCard("Choisissez la carte trésor que vous souhaitez écarter.", cl, false);
         choosed_card_main=cl.getCard(choix);      
-        cl.transferTo(cl.getCard(choix), p.getGame().getTrashedCards());                    
+        p.getHand().transferTo(cl.getCard(choix), p.getGame().getTrashedCards());     //on transfére bien la carte de la main du joueur et non de la liste crée à partir des cartes trésors qui est une liste à part               
         newcard_cost = choosed_card_main.getCost()+3;               
       
         CardList supply_cards = p.getGame().availableSupplyCards();
@@ -40,6 +40,7 @@ public class Mine extends ActionCard {
         	
         }
              String choix_carte = p.chooseCard("Choisissez la carte trésor que vous souhaitez récupérer dans votre main.", treasure_card_list, false);
-             supply_cards.transferTo(supply_cards.getCard(choix_carte), p.getHand());                
+             Card choosed=p.gain(choix_carte); //on utilise gain pour retirer la carte des supply, on l'ajoute de discard à hand par la suite
+             p.getDiscard().transferTo(choosed, p.getHand());
     }
 }
