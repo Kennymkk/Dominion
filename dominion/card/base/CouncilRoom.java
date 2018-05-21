@@ -13,7 +13,14 @@ import dominion.card.*;
 public class CouncilRoom extends ActionCard {
   
 	public CouncilRoom() { super("CouncilRoom", 5);	}
-	@Override
+	
+	
+	  public String toString() {
+			return super.toString() + "+4 Cartes."
+					+ "+1 Achat.\n"
+					+ "Tous vos adversaires piochent 1 carte.\n";
+	  }
+  @Override  
   public void play(Player p) {
     for (int i=0;i<4 ;i++ ) {
       p.getHand().add(p.drawCard());

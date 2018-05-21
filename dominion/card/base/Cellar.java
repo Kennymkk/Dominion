@@ -13,6 +13,13 @@ import dominion.card.*;
 public class Cellar extends ActionCard {
 
   public Cellar() { super("Cellar", 2);	}
+  
+  
+  public String toString() {
+		return super.toString() + "+1 Action"
+				+ " Défaussez autant de cartes que vous voulez.\n"
+				+ "+1 Carte par carte défaussée.";
+  }
   @Override
   public void play(Player p) {
     p.incrementActions(1);

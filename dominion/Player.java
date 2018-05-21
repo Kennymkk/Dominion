@@ -315,8 +315,9 @@ public class Player {
 	 * {@code inPlay} et exécute la méthode {@code play(Player p)} de la carte.
 	 */
 	public void playCard(Card c) {
-		this.hand.remove(c);
+		
 		this.inPlay.add(c);
+		this.hand.remove(c);
 		c.play(this);
 	}
 
@@ -638,7 +639,7 @@ public class Player {
 		this.hand.remove(Card);
 }
 
-	public void returnACardInHand (String cardName) {
+	public void removeCardInPlay (String cardName) {
 		
 		this.inPlay.remove(cardName);
 	}

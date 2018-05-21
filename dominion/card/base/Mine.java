@@ -10,7 +10,14 @@ import dominion.card.*;
  */
 public class Mine extends ActionCard {
     public Mine() { super("Mine", 5);    }
-    
+
+	public String toString() {
+		return super.toString() + "Écartez une carte Trésor de votre main."
+				+ "Recevez une carte Trésor coûtant jusqu'à 3 Pièces de plus.\n"
+				+ "Ajoutez cette carte à votre main.\n";
+  	}
+	
+	@Override
     public void play(Player p) {
         
         CardList cl = p.getTreasureCards();       

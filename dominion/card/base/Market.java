@@ -14,7 +14,15 @@ import dominion.card.*;
 public class Market extends ActionCard {
   
 	public Market() { super("Market", 5);	}
-	@Override
+	
+	public String toString() {
+		return super.toString() + "+1 Carte."
+				+ "+1 Action\n"
+				+ "+1 Achat\n"
+				+ "+1 Pièce\n";
+  	}
+	
+  @Override
   public void play(Player p) {
 		p.getHand().add(p.drawCard());
 		p.incrementActions(1);

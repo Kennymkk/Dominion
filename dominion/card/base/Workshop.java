@@ -11,6 +11,10 @@ import dominion.card.*;
 public class Workshop extends ActionCard {
 	public Workshop() { super("Workshop", 3);	}
 
+	public String toString() {
+		return super.toString() + "Recevez une carte coûtant jusqu'à 4 Pièces.";
+  	}
+	
 	@Override
 	public void play(Player p) {
 		CardList SupplyCards=p.getGame().availableSupplyCards();

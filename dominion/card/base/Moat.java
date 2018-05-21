@@ -12,6 +12,12 @@ import dominion.card.*;
 public class Moat extends ReactionCard {
 	public Moat() { super("Moat", 2);	}
 
+	public String toString() {
+		return super.toString() + "+2 Cartes."
+				+ "Lorsqu’un adversaire joue une carte Attaque, vous pouvez dévoiler cette carte de votre main. Dans ce cas, l’Attaque n’a pas d’effet sur vous.\n";
+				
+  	}
+	
 	
 	public boolean reaction(Player p){
 		

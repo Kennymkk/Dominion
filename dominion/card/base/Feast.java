@@ -11,7 +11,11 @@ import dominion.card.*;
  */
 public class Feast extends ActionCard {
 	public Feast() { super("Feast", 4);	}
-
+	
+	 public String toString() {
+		return super.toString() + "Écartez cette carte."
+				+ "Recevez une carte coûtant jusqu'à 5 Pièces.\n";
+  }
 	@Override
 	public void play(Player p) {
 		p.getHand().transferTo(this, p.getGame().getTrashedCards());
