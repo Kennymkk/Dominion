@@ -12,7 +12,7 @@ import dominion.card.*;
  */
 public class CouncilRoom extends ActionCard {
   
-	public CouncilRoom() { super("CouncilRoom", 5);	}
+	public CouncilRoom() { super("Council Room", 5);	}
 	
 	
 	  public String toString() {
@@ -29,5 +29,8 @@ public class CouncilRoom extends ActionCard {
 	for (Player loop_p : p.getGame().otherPlayers(p)){
       loop_p.getHand().add(loop_p.drawCard());
     }
+	int debug=1;
   }
+  
+  
 }
