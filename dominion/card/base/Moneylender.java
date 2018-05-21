@@ -14,6 +14,11 @@ public class Moneylender extends ActionCard {
 
 	public Moneylender() { super("Moneylender", 4);	}
 
+	public String toString() {
+		return super.toString() + "Écartez une carte Cuivre de votre main."
+				+ "Dans ce cas, +3 Pièces.\n";
+  	}
+	
 	@Override
 	public void play(Player p) {
 		Card copper=p.getHand().getCard("Copper");

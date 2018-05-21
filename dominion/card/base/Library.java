@@ -10,7 +10,12 @@ import dominion.card.*;
  */
 public class Library extends ActionCard {
 	public Library() { super("Library", 5);	}
-
+	
+	public String toString() {
+		return super.toString() + "Piochez jusqu'à ce que vous ayez 7 cartes en main."
+				+ "Chaque carte Action piochée peut être mise de côté. Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.\n";
+  	}
+	
 	@Override
 	public void play(Player p) {
 		CardList apartCards=new CardList();

@@ -12,6 +12,11 @@ import dominion.card.*;
 public class Militia extends AttackCard {
 	public Militia() { super("Militia", 4);	}
 
+	
+	public String toString() {
+		return super.toString() + "+2 Pièces."
+				+ "Tous vos adversaires défaussent leurs cartes de façon à n'avoir que 3 cartes en main.\n";
+  	}
 	@Override
 	public void play(Player p) {
 		p.incrementMoney(2);

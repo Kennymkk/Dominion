@@ -12,11 +12,16 @@ import dominion.card.*;
 public class Gardens extends VictoryCard {
 	public Gardens() { super("Gardens", 4);	}
 
-	@Override
+	
+	
+	 public String toString() {
+		return super.toString() + " Vaut 1VP pour chaque 10 cartes dans votre deck (arrondi à l'unité inférieure).\n";
+	}
 	public void play(Player p) {
 				
 	}
 	
+	@Override
 	public int victoryValue(Player p){
 		int nbCard=0;
 		nbCard=p.getDraw().size();

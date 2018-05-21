@@ -13,6 +13,12 @@ public class Chapel extends ActionCard {
 		super("Chapel", 2);	
 	}
 
+	
+	
+	  public String toString() {
+			return super.toString() + " Écartez jusqu'à 4 cartes de votre main.\n";
+	  }
+	  
 	@Override
 	public void play(Player p) {
 		

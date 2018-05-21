@@ -13,6 +13,11 @@ import dominion.card.*;
 public class Remodel extends ActionCard {
 	public Remodel() { super("Remodel", 4);	}
 
+	public String toString() {
+		return super.toString() + "Écartez une carte de votre main."
+				+ "Recevez une carte coûtant jusqu'à 2 Pièces de plus que la carte écartée.\n";
+  	}
+	
 	@Override
 	public void play(Player p) {
 		CardList HandPlayer=p.getHand();
